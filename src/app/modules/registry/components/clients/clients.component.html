@@ -1,0 +1,5 @@
+<h5>clients</h5>
+<hr/>
+<ul *ngFor="let c of clientsService.getClients()|async ">
+  <li>{{c.name}} Age:{{c.age}} Sex:{{c.gender}}</li>
+</ul>
