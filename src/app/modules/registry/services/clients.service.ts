@@ -9,17 +9,8 @@ import {List} from 'immutable';
   providedIn: 'root'
 })
 export class ClientsService {
-  private clients$=new BehaviorSubject<List<Client>>(List([]))
-
   constructor(private http:HttpClient) { }
-  public init(){
-    this.http
-      .get<List<Client>>(`${environment.API_URL}/clients`)
-      .subscribe((clients)=>{
-        this.clients$.next(clients);
-      })
-  }
-  public getClients():Observable<List<Client>>{
-    return this.clients$;
+  public getClients():Observable<Client[]> {
+    return this.http.get<Client[]>(`${environment.API_URL}/clients`)
   }
 }

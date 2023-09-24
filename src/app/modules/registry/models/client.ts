@@ -4,3 +4,4 @@ export interface Client {
   name?: string
   gender?: string
 }
+export type ClientRequiredProps=Pick<Client,'age'|'name'|'gender'>
