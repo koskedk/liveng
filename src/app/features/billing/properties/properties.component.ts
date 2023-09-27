@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {Store} from "@ngrx/store";
 import {config, Observable} from "rxjs";
 import {Property} from "../_models/property";
-import {propertiesFeatureKey, BillingState} from "../store/billing.reducers";
 import {enterProperties} from "../store/billing.actions";
 import {selectBillingProperties, selectBillingPropertiesError} from "../store/billing.selectors";
 
@@ -14,7 +13,7 @@ import {selectBillingProperties, selectBillingPropertiesError} from "../store/bi
 export class PropertiesComponent implements OnInit{
   properties$:Observable<Property[]>;
   error$:Observable<string>;
-  constructor(readonly store:Store<BillingState>) {
+  constructor(readonly store:Store) {
     this.error$ = store.select(selectBillingPropertiesError)
     this.properties$ = store.select(selectBillingProperties)
   }

@@ -1,11 +1,15 @@
 import {createFeatureSelector, createSelector} from "@ngrx/store";
-import {BillingState, propertiesFeatureKey} from "./billing.reducers";
+import {State, propertiesFeatureKey, adapter} from "./billing.reducers";
+ export const {
+   selectAll,
+   selectEntities
+ }=adapter.getSelectors();
 
-export const selectBilling=createFeatureSelector<BillingState>(propertiesFeatureKey)
+export const selectBilling=createFeatureSelector<State>(propertiesFeatureKey)
 
 export const selectBillingProperties=createSelector(
   selectBilling,
-  (state)=>state.properties
+  selectAll
 );
 
 export const selectBillingPropertiesError=createSelector(

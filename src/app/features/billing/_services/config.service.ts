@@ -9,6 +9,6 @@ import {environment} from "../../../../environments/environment.development";
 export class ConfigService {
   constructor(private http:HttpClient) { }
   getAllProperties(){
-    return this.http.get<Property[]>(`${environment.API_URL}/configsu`);
+    return this.http.get<Property[]>(`${environment.API_URL}/configsx`);
   }
 }
