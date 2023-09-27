@@ -1,4 +1,21 @@
 {
+  "configs": [
+    {
+      "id": "currency",
+      "value": "KES",
+      "description": "default currency"
+    },
+    {
+      "id": "country.name",
+      "value": "Kenya",
+      "description": "default country name"
+    },
+    {
+      "id": "country.code",
+      "value": "KE",
+      "description": "default country code"
+    }
+  ],
   "clients": [
     {
       "id": "650c975e4e7c0b77a811fc63",

@@ -4,30 +4,27 @@ import {catchError, exhaustMap, map, of} from "rxjs";
 import {enterProperties} from "./billing.actions";
 import {Property} from "../_models/property";
 import {loadPropertiesFailure, loadPropertiesSuccess} from "./billing-api.actions";
+import {ConfigService} from "../_services/config.service";
 
 
 @Injectable()
 export class BillingEffects {
-  constructor(private action$: Actions) {
+  constructor(
+    private configService: ConfigService,
+    private action$: Actions) {
   }
 
   loadProperties$ = createEffect(() => this.action$.pipe(
       ofType(enterProperties),
-      exhaustMap(() => getAllProperties()
+      exhaustMap(() => this.configService.getAllProperties()
         .pipe(
           map((properties) => loadPropertiesSuccess({properties})),
-          catchError(error=>of(loadPropertiesFailure(error)))
+          catchError(error => {
+            console.log('iko shida',error)
+            return of(loadPropertiesFailure({error:`${error.message}`}));
+          })
         )
       )
     )
   );
-}
-
-
-const getAllProperties = () => {
-  throw new Error('wewew');
-  return of<Property[]>([
-    {id: "currency", value: "KES", description: "default currency"},
-    {id: "country", value: "Kenya", description: "default country"}
-  ]);
 }
