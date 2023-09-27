@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {RegistryModule} from "./modules/registry/registry.module";
 
-const routes: Routes = [{
-  path:'',
-  loadChildren:()=> import('./modules/registry/registry.module').then(m=>m.RegistryModule)
-}];
+const routes: Routes = [
+  {
+    path: 'registry',
+    loadChildren: () => import('./features/registry/registry.module').then(m => m.RegistryModule)
+  },
+  {
+    path: 'billing',
+    loadChildren: () => import('./features/billing/billing.module').then(m => m.BillingModule)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
