@@ -3,3 +3,4 @@ export interface Property {
   value: string,
   description: string
 }
+export type PropertyEditDto = Pick<Property, "value" | "description">

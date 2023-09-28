@@ -1,9 +1,14 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
-import {enterProperties} from "./billing.actions";
+import {catchError, concatMap, exhaustMap, map, of} from "rxjs";
+import {enterProperties, updateProperty} from "./billing.actions";
 import {Property} from "../_models/property";
-import {loadPropertiesFailure, loadPropertiesSuccess} from "./billing-api.actions";
+import {
+  loadPropertiesFailure,
+  loadPropertiesSuccess,
+  updatePropertiesFailure,
+  updatePropertiesSuccess
+} from "./billing-api.actions";
 import {ConfigService} from "../_services/config.service";
 
 
@@ -20,8 +25,22 @@ export class BillingEffects {
         .pipe(
           map((properties) => loadPropertiesSuccess({properties})),
           catchError(error => {
-            console.log('iko shida',error)
+            console.error('iko shida',error)
             return of(loadPropertiesFailure({error:`${error.message}`}));
+          })
+        )
+      )
+    )
+  );
+
+  updateProperty$ = createEffect(() => this.action$.pipe(
+      ofType(updateProperty),
+    concatMap((action) => this.configService.updateProperty(action.id,action.property)
+        .pipe(
+          map((property) => updatePropertiesSuccess({property: property})),
+          catchError(error => {
+            console.error('iko shida',error)
+            return of(updatePropertiesFailure({error:`${error.message}`}));
           })
         )
       )
