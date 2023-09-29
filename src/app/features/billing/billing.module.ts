@@ -2,21 +2,25 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { BillingRoutingModule } from './billing-routing.module';
-import { PropertiesComponent } from './properties/properties.component';
 import {StoreModule} from "@ngrx/store";
-import {propertiesFeatureKey, propertiesReducer} from "./store/billing.reducers";
 import {EffectsModule} from "@ngrx/effects";
-import {BillingEffects} from "./store/billing.effects";
+import { SettingsPageComponent } from './settings/settings-page/settings-page.component';
+import { SettingsListComponent } from './settings/settings-list/settings-list.component';
+import { SettingDetailComponent } from './settings/setting-detail/setting-detail.component';
+import {SettingsEffects} from "./settings/+state/settings.effects";
+import * as fromSettings from "./settings/+state/settings.reducers";
 
 @NgModule({
   declarations: [
-    PropertiesComponent
+    SettingsPageComponent,
+    SettingsListComponent,
+    SettingDetailComponent
   ],
   imports: [
     CommonModule,
     BillingRoutingModule,
-    StoreModule.forFeature(propertiesFeatureKey,propertiesReducer),
-    EffectsModule.forFeature([BillingEffects])
+    StoreModule.forFeature(fromSettings.BILLING_SETTINGS_FEATURE_KEY,fromSettings.reducer),
+    EffectsModule.forFeature([SettingsEffects])
   ]
 })
 export class BillingModule { }

@@ -1,0 +1,12 @@
+<p>Billing Settings</p>
+<hr/>
+
+<div *ngIf="loading$|async">
+  <p>loading, please wait ...</p>
+</div>
+
+<div *ngIf="error$ |async as errorMessage">
+  <p>{{errorMessage}}</p>
+</div>
+
+{{settingList$|async|json}}

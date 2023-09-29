@@ -1,7 +1,0 @@
-<p>Billing > Config</p>
-<div *ngIf="error$ | async as errorMessage">
-  {{ errorMessage }}
-</div>
-<ul *ngFor="let p of properties$|async">
-  <li>{{p.id}}:{{p.value}}  ({{p.description}})</li>
-</ul>

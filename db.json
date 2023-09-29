@@ -1,4 +1,21 @@
 {
+  "settings": [
+    {
+      "id": "currency",
+      "value": "KES",
+      "description": "default currency"
+    },
+    {
+      "id": "country.name",
+      "value": "Kenya",
+      "description": "default country name"
+    },
+    {
+      "id": "country.code",
+      "value": "KE",
+      "description": "default country code"
+    }
+  ],
   "configs": [
     {
       "id": "currency",

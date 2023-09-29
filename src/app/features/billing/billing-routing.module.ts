@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {PropertiesComponent} from "./properties/properties.component";
+import {SettingsPageComponent} from "./settings/settings-page/settings-page.component";
 
 const routes: Routes = [
-  { path:'config',component:PropertiesComponent}
+  { path:'settings',component:SettingsPageComponent}
 ];
 
 @NgModule({
