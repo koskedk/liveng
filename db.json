@@ -2,7 +2,7 @@
   "settings": [
     {
       "id": "currency",
-      "value": "KES",
+      "value": "KSH",
       "description": "default currency"
     },
     {

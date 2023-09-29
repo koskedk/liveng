@@ -1,1 +1,5 @@
-<p>settings-list works!</p>
+<div>
+  <ul *ngFor="let setting of settings">
+    <li (click)="selectSetting(setting)">{{setting.id}}:{{setting.value}} ({{setting.description}})</li>
+  </ul>
+</div>

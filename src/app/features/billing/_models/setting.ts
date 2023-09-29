@@ -3,3 +3,5 @@ export interface Setting {
   value: string,
   description: string
 }
+
+export type SettingEditDto = Pick<Setting, "value" | "description">;

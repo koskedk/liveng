@@ -1,8 +1,14 @@
 import {Injectable} from "@angular/core";
 import {Actions, createEffect, ofType} from "@ngrx/effects";
-import {catchError, exhaustMap, map, of} from "rxjs";
+import {catchError, concatMap, exhaustMap, map, of} from "rxjs";
 import {SettingService} from "../../_services/setting.service";
-import {loadSettingList, loadSettingListFailure, loadSettingListSuccess} from "./settings.actions";
+import {
+  loadSettingList,
+  loadSettingListFailure,
+  loadSettingListSuccess,
+  updateSetting, updateSettingFailure,
+  updateSettingSuccess
+} from "./settings.actions";
 
 @Injectable()
 export class SettingsEffects {
@@ -18,6 +24,19 @@ export class SettingsEffects {
           map((settings) => loadSettingListSuccess({settings})),
           catchError(error => {
             return of(loadSettingListFailure({error:`${error.message}`}));
+          })
+        )
+      )
+    )
+  );
+
+  updateSetting$ = createEffect(() => this.action$.pipe(
+      ofType(updateSetting),
+      concatMap((a) => this.settingService.updateSetting(a.id,a.setting)
+        .pipe(
+          map((setting) => updateSettingSuccess({setting})),
+          catchError(error => {
+            return of(updateSettingFailure({error:`${error.message}`}));
           })
         )
       )

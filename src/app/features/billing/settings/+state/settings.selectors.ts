@@ -3,9 +3,9 @@ import {BILLING_SETTINGS_FEATURE_KEY, State} from "./settings.reducers";
 
 export const selectBillingSettingState = createFeatureSelector<State>(BILLING_SETTINGS_FEATURE_KEY)
 
-export const selectBillingSetting = createSelector(
+export const selectActiveBillingSetting = createSelector(
   selectBillingSettingState,
-  (state) => state.setting
+  (state) => state.activeSetting
 );
 
 export const selectBillingSettingList = createSelector(

@@ -9,6 +9,7 @@ import { SettingsListComponent } from './settings/settings-list/settings-list.co
 import { SettingDetailComponent } from './settings/setting-detail/setting-detail.component';
 import {SettingsEffects} from "./settings/+state/settings.effects";
 import * as fromSettings from "./settings/+state/settings.reducers";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import * as fromSettings from "./settings/+state/settings.reducers";
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     BillingRoutingModule,
     StoreModule.forFeature(fromSettings.BILLING_SETTINGS_FEATURE_KEY,fromSettings.reducer),
     EffectsModule.forFeature([SettingsEffects])

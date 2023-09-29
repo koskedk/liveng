@@ -8,5 +8,8 @@
 <div *ngIf="error$ |async as errorMessage">
   <p>{{errorMessage}}</p>
 </div>
+<app-settings-list [settings]="settingList$|async" (select)="onSelect($event)"></app-settings-list>
 
-{{settingList$|async|json}}
+<div *ngIf="setting$|async as activeSetting">
+  <app-setting-detail [setting]="activeSetting" (save)="onSave($event)" (cancel)="onCancel()"></app-setting-detail>
+</div>
