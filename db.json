@@ -1,0 +1,85 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Medication",
+      "description": "Medication category"
+    },
+    {
+      "id": 2,
+      "name": "Service",
+      "description": "Service or Consultaion fees"
+    },
+    {
+      "id": 5,
+      "name": "Lab Test",
+      "description": "Lab Test"
+    }
+  ],
+  "settings": [
+    {
+      "id": "currency",
+      "value": "KSH",
+      "description": "default currency"
+    },
+    {
+      "id": "country.name",
+      "value": "Republic of Kenya",
+      "description": "default country name"
+    },
+    {
+      "id": "country.code",
+      "value": "KE",
+      "description": "default country code"
+    }
+  ],
+  "configs": [
+    {
+      "id": "currency",
+      "value": "KES",
+      "description": "default currency"
+    },
+    {
+      "id": "country.name",
+      "value": "Kenya",
+      "description": "default country name"
+    },
+    {
+      "id": "country.code",
+      "value": "KE",
+      "description": "default country code"
+    }
+  ],
+  "clients": [
+    {
+      "id": "650c975e4e7c0b77a811fc63",
+      "age": 27,
+      "name": "Ana Peters",
+      "gender": "female"
+    },
+    {
+      "id": "650c975ecc94080300c4f38f",
+      "age": 33,
+      "name": "Kristen Reilly",
+      "gender": "female"
+    },
+    {
+      "id": "650c975e150f5ec314fbafd0",
+      "age": 30,
+      "name": "Cunningham Valentine",
+      "gender": "male"
+    },
+    {
+      "id": "650c975ecb6007e9d25227ce",
+      "age": 31,
+      "name": "Jo Quinn",
+      "gender": "female"
+    },
+    {
+      "id": "650c975ea511e029d97e4262",
+      "age": 38,
+      "name": "Leta Meyer",
+      "gender": "female"
+    }
+  ]
+}

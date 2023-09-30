@@ -1,0 +1,9 @@
+<div>
+  <ul *ngFor="let category of categories">
+    <li>
+      {{category.id}}:{{category.name}} ({{category.description}})
+      <button (click)="selectCategory(category)">Edit</button>
+      <button (click)="deleteCategory(category)">Delete</button>
+    </li>
+  </ul>
+</div>

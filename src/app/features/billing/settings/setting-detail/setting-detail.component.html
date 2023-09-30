@@ -1,0 +1,12 @@
+<div>
+  <form [formGroup]="settingForm" (ngSubmit)="saveSetting()" >
+    <label for="id">Id</label>
+    <input id="id" type="text" formControlName="id" readonly>
+    <label for="value">Value</label>
+    <input id="value" type="text" formControlName="value">
+    <label for="description">Description</label>
+    <input id="description" type="text" formControlName="description" readonly>
+    <button type="submit" [disabled]="!settingForm.valid">Save</button>
+    <button (click)="cancelSaveSetting()">Cancel</button>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<p>Billing Categories</p>
+<hr/>
+
+<div *ngIf="loading$|async">
+  <p>loading, please wait ...</p>
+</div>
+
+<div *ngIf="error$ |async as errorMessage">
+  <p>{{errorMessage}}</p>
+</div>
+
+<app-categories-list [categories]="categoryList$|async" (select)="onSelect($event)"
+                     (delete)="onDelete($event)"></app-categories-list>
+
+<div>
+  <app-category-detail [category]="category$|async" (save)="onSave($event)" (cancel)="onCancel()"></app-category-detail>
+</div>
