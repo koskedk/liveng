@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs";
-import {Category} from "../../_models/category";
+import {Category, CategoryAddEditDto} from "../../_models/category";
 import {Store} from "@ngrx/store";
 import {
   selectActiveBillingCategory, selectBillingCategoryError,
@@ -40,20 +40,31 @@ export class CategoriesPageComponent implements OnInit {
     this.store.dispatch(setActiveCategory({activeCategory: $event}));
   }
 
-  onAdd($event: Category) {
-    this.store.dispatch(createCategory({category: $event}));
+  onSave(category: Category | CategoryAddEditDto) {
+    if ('id' in category) {
+      this.updateCategory(category);
+    } else {
+      this.saveCategory(category);
+    }
   }
 
-  onEdit($event: Category) {
-    this.store.dispatch(updateCategory({id: $event.id, category: $event}));
+  saveCategory(category: CategoryAddEditDto) {
+    this.store.dispatch(createCategory({ category: category}));
+  }
+
+  updateCategory(category: Category) {
+    this.store.dispatch(updateCategory({id: category.id, category: category}));
   }
 
   onDelete($event: Category) {
     this.store.dispatch(deleteCategory({id: $event.id}));
   }
 
-
   onCancel() {
     this.store.dispatch(clearActiveCategory());
   }
+
+  // createNew() {
+  //   this.store.dispatch(createCategory({category: $event}));
+  // }
 }

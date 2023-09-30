@@ -16,7 +16,7 @@ export class CategoryService {
   }
 
   createCategory(category: CategoryAddEditDto) {
-    return this.http.put<Category>(`${environment.API_URL}/categories`, category);
+    return this.http.post<Category>(`${environment.API_URL}/categories`, category);
   }
 
   updateCategory(id: number, category: CategoryAddEditDto) {
@@ -24,6 +24,6 @@ export class CategoryService {
   }
 
   deleteCategory(id: number) {
-    return this.http.delete<Category>(`${environment.API_URL}/categories/${id}`);
+    return this.http.delete(`${environment.API_URL}/categories/${id}`);
   }
 }

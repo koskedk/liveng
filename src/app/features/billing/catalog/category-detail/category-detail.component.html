@@ -1,8 +1,11 @@
 <div>
-  <form [formGroup]="categoryForm" (ngSubmit)="saveCategory()" >
-    <label for="id">Id</label>
-    <input id="id" type="text" formControlName="id" readonly>
-
+  <h1>
+        <span *ngIf="originalCategory?.id; else prompt"
+        >Editing {{ originalCategory?.name }}</span
+        >
+    <ng-template #prompt>Create Category</ng-template>
+  </h1>
+  <form [formGroup]="categoryForm"  #f="ngForm" (ngSubmit)="saveCategory(f.value)" >
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name">
 
@@ -10,6 +13,6 @@
     <input id="description" type="text" formControlName="description">
 
     <button type="submit" [disabled]="!categoryForm.valid">Save</button>
-    <button (click)="cancelSaveCategory()">Cancel</button>
+    <button type="button" (click)="cancelSaveCategory()">Cancel</button>
   </form>
 </div>

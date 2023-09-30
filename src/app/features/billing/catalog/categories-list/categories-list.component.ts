@@ -11,8 +11,15 @@ export class CategoriesListComponent {
   categories: Category[]
   @Output()
   select = new EventEmitter<Category>();
+  @Output()
+  delete = new EventEmitter<Category>();
+
 
   selectCategory(category: Category) {
     this.select.emit(category)
+  }
+
+  deleteCategory(category: Category) {
+    this.delete.emit(category)
   }
 }

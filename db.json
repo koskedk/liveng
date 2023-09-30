@@ -8,7 +8,12 @@
     {
       "id": 2,
       "name": "Service",
-      "description": "Service/Consultaion"
+      "description": "Service or Consultaion fees"
+    },
+    {
+      "id": 5,
+      "name": "Lab Test",
+      "description": "Lab Test"
     }
   ],
   "settings": [

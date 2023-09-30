@@ -59,7 +59,7 @@ export class CategoriesEffects {
       ofType(deleteCategory),
       mergeMap((a) => this.categoryService.deleteCategory(a.id)
         .pipe(
-          map((category) => deleteCategorySuccess({category})),
+          map((category) => deleteCategorySuccess({id: a.id})),
           catchError(error => {
             return of(deleteCategoryFailure({error: `${error.message}`}));
           })

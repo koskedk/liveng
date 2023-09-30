@@ -88,7 +88,7 @@ export const reducer = createReducer(
     return ({
       ...state,
       activeCategory: null,
-      categoryList: state.categoryList.filter((category) => action.category.id !== category.id),
+      categoryList: state.categoryList.filter((category) => action.id !== category.id),
       loading: false
     });
   }),
