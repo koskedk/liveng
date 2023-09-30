@@ -1,0 +1,15 @@
+<div>
+  <form [formGroup]="categoryForm" (ngSubmit)="saveCategory()" >
+    <label for="id">Id</label>
+    <input id="id" type="text" formControlName="id" readonly>
+
+    <label for="name">Name</label>
+    <input id="name" type="text" formControlName="name">
+
+    <label for="description">Description</label>
+    <input id="description" type="text" formControlName="description">
+
+    <button type="submit" [disabled]="!categoryForm.valid">Save</button>
+    <button (click)="cancelSaveCategory()">Cancel</button>
+  </form>
+</div>

@@ -1,4 +1,16 @@
 {
+  "categories": [
+    {
+      "id": 1,
+      "name": "Medication",
+      "description": "Medication category"
+    },
+    {
+      "id": 2,
+      "name": "Service",
+      "description": "Service/Consultaion"
+    }
+  ],
   "settings": [
     {
       "id": "currency",
@@ -7,7 +19,7 @@
     },
     {
       "id": "country.name",
-      "value": "Kenya",
+      "value": "Republic of Kenya",
       "description": "default country name"
     },
     {
